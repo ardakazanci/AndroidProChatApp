@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AndroidProChatApp</string>
+    <string name="text_login">LOGIN</string>
+    <string name="text_register">REGISTER</string>
+    <string name="enter_your_username">Enter your username</string>
+    <string name="app_logo">App Logo</string>
+    <string name="cancel">CANCEL</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="enter_your_full_name">Enter your Full Name</string>
+    <string name="enter_your_password">Enter your password</string>
+</resources>
