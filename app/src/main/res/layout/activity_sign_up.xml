@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_your_full_name"
-                android:inputType="textPassword"
+                android:inputType="textPersonName"
                 android:padding="5dp" />
 
 
