@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import com.ardakazanci.androidprochatapp.Adapter.ChatDialogsAdapter;
 import com.ardakazanci.androidprochatapp.Common.Common;
+import com.ardakazanci.androidprochatapp.Holder.QBUsersHolder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.quickblox.auth.QBAuth;
 import com.quickblox.auth.session.BaseService;
@@ -23,6 +24,7 @@ import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.exception.BaseServiceException;
 import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.core.request.QBRequestGetBuilder;
+import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
 
 import java.util.ArrayList;
@@ -119,6 +121,18 @@ public class ChatDialogsActivity extends AppCompatActivity {
         String user, password;
         user = getIntent().getStringExtra("user");
         password = getIntent().getStringExtra("password");
+
+        QBUsers.getUsers(null).performAsync(new QBEntityCallback<ArrayList<QBUser>>() {
+            @Override
+            public void onSuccess(ArrayList<QBUser> qbUsers, Bundle bundle) {
+                QBUsersHolder.getInstance().putUsers(qbUsers);
+            }
+
+            @Override
+            public void onError(QBResponseException e) {
+
+            }
+        });
 
         final QBUser qbUser = new QBUser(user, password);
         QBAuth.createSession(qbUser).performAsync(new QBEntityCallback<QBSession>() {
